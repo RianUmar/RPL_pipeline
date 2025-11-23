@@ -1,0 +1,36 @@
+name: Python CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Ambil kode
+    - uses: actions/checkout@v3
+
+    # 2. Setup Python
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    # 3. Install Dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Jalankan Linter (Syarat Tugas)
+    - name: Lint with flake8
+      run: |
+        # Menampilkan error syntax jika ada
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+    # 5. Jalankan Unit Test (Syarat Tugas)
+    - name: Test with pytest
+      run: |
+        pytest
