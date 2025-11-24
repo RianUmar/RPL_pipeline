@@ -7,7 +7,7 @@
 #5. Atalya Victoria             F55124028
 
 def tambah(a, b):
-    return a * b
+return a + b
 
 def kurang(a, b):
     return a - b
