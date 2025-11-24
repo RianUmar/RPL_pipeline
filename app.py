@@ -7,7 +7,7 @@
 #5. Atalya Victoria             F55124028
 
 def tambah(a, b):
-    return a * b #Skenario gagal
+    return a + b #Skenario gagal
 
 def kurang(a, b):
     return a - b
